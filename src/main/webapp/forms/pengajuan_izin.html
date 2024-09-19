@@ -1,0 +1,53 @@
+<form action="">
+  <h3>Form Tunjangan Klaim Kesehatan</h3>
+
+  <div class="form-group" style="display: flex; flex-flow: column;">
+    <label>Jenis Tizin</label>
+    <select cam-variable-name="category"
+            cam-variable-type="String">
+      <option value="Keperluan_Pribadi">Keperluan Pribadi</option>
+      <option value="sakit">sakit</option>
+      <option value="lainnya">lainnya</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label>Tanggal izin</label>
+    <p class="input-group">
+      <input type="text"
+             cam-variable-name="purchaseDate"
+             cam-variable-type="String"
+             class="form-control"
+             uib-datepicker-popup="yyyy-MM-dd"
+             is-open="dateFieldOpened" />
+      <span class="input-group-btn">
+            <button type="button"
+                    class="btn btn-default"
+                    ng-click="open($event)">
+                <i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+    </p>
+  </div>
+  <script cam-script type="text/form-script">
+    $scope.open = function($event) {
+      $event.preventDefault();
+      $event.stopPropagation();
+
+      $scope.dateFieldOpened = true;
+    };
+  </script>
+  <div class="form-group" style="display: flex; flex-flow: column">
+    <label>deskripsi</label>
+    <textarea cam-variable-name="description"
+              cam-variable-type="String"></textarea>
+  </div>
+
+  <div class="form-group" style="display: flex; flex-flow: column">
+    <label>Bukti Pendukung</label>
+    <input type="file"
+           cam-variable-name="evidence"
+           cam-variable-type="File"
+           cam-max-filesize="5000000" class="form-control"/>
+  </div>
+
+</form>
